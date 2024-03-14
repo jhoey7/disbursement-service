@@ -1,0 +1,182 @@
+{
+	"info": {
+		"_postman_id": "e45e79da-1dfe-486d-87eb-e03774dc8516",
+		"name": "disbursement-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14665669"
+	},
+	"item": [
+		{
+			"name": "Validate Account - Mock API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://65f2112b034bdbecc7645157.mockapi.io/validate-account?accountNumber=358129497&accountName=Timothy Corkery",
+					"protocol": "https",
+					"host": [
+						"65f2112b034bdbecc7645157",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"validate-account"
+					],
+					"query": [
+						{
+							"key": "accountNumber",
+							"value": "358129497"
+						},
+						{
+							"key": "accountName",
+							"value": "Timothy Corkery"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Disbursement - Mock API",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"accountName\": \"Timothy Corkery\",\n    \"accountNumber\": \"358129497\",\n    \"amount\": 1000000,\n    \"externalId\": \"17BC92F138647860\",\n    \"receiptEmail\": \"joni.iskndr92@gmail.com\",\n    \"remark\": \"buat jajan\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://65f2112b034bdbecc7645157.mockapi.io/disbursement",
+					"protocol": "https",
+					"host": [
+						"65f2112b034bdbecc7645157",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"disbursement"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validate Account",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bankCode\": \"BCA\",\n    \"accountNumber\": \"358129497\",\n    \"accountName\": \"Timothy Corkery\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/1.0/accounts/validate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"1.0",
+						"accounts",
+						"validate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Disbursement",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 1000000,\n    \"remark\": \"buat jajan\",\n    \"accountNumber\": \"358129497\",\n    \"accountName\": \"Timothy Corkery\",\n    \"receiptEmail\": \"joni.iskndr92@gmail.com\",\n    \"bankCode\": \"BCA\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/1.0/disburse",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"1.0",
+						"disburse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Callback",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"createdAt\": \"2058-12-16T19:55:25.140Z\",\n    \"amount\": 1000000,\n    \"remark\": \"buat jajan\",\n    \"accountNumber\": \"358129497\",\n    \"accountName\": \"Timothy Corkery\",\n    \"receiptEmail\": \"joni.iskndr92@gmail.com\",\n    \"externalId\": \"17BC939C62825238\",\n    \"requestId\": \"\",\n    \"id\": \"2\",\n    \"status\": \"SUCCESS\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/1.0/disburse/callback",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"1.0",
+						"disburse",
+						"callback"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

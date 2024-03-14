@@ -1,0 +1,25 @@
+{
+  "mappingErrorCodes": [
+    {
+      "receiveCode": "invalid.json",
+      "objectError": {
+        "errorCode": 400,
+        "errorDesc": "Unable to process the request. Wait a few minutes and try performing this operation again."
+      }
+    },
+    {
+      "receiveCode": "general.system.error",
+      "objectError": {
+        "errorCode": 419,
+        "errorDesc": "general system error"
+      }
+    },
+    {
+      "receiveCode": "ex-bank.404",
+      "objectError": {
+        "errorCode": 404,
+        "errorDesc": "Account not found."
+      }
+    }
+  ]
+}
